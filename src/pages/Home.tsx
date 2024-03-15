@@ -11,7 +11,7 @@ function Home() {
         </Grid>
         <Grid item xs={12}>
           <Container>
-            <h1>Home develop</h1>
+            <h1>Home develop!!</h1>
           </Container>
         </Grid>
       </Grid>
