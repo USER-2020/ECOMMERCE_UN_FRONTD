@@ -1,13 +1,11 @@
 import './App.css'
-import NavBar from './components/NavBar';
+import AppRouter from './routes/Routes';
 
 
 function App() {
   return (
     <div className='App'>
-      <div className='NavLogin'>
-      <NavBar/>
-      </div>
+      <AppRouter />
     </div>
   );
 }
