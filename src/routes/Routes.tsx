@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.tsx';
-import Card from '../components/productsDetails/Card.tsx';
 import NavBar from '../components/navbar/NavBar.tsx';
+import MediaControlCard from '../components/productsDetails/card.tsx';
 
 
 const AppRouter = () => {
@@ -12,7 +12,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/prueba" element={<Home />} />
-                    <Route path="/detailproducts" element={<Card />} />
+                    <Route path="/detailproducts" element={<MediaControlCard />} />
                 </Routes>
             </Router>
         </>
