@@ -1,8 +1,9 @@
-import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.tsx';
 import NavBar from '../components/navbar/NavBar.tsx';
 import Footer from '../components/footer/Footer.tsx';
 import Login from '../components/auth/Login.tsx';
+
 
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Footer />
         </Router>
         </>
+
     );
 };
 
