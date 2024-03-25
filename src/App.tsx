@@ -8,12 +8,15 @@ function App() {
   return (
     <div className='App'>
           <AppRouter />
+
+          
       <div className='NavLogin'>
           <NavBar/>
+      </div>
+
       <div className='Footer'>
           <Footer/>
       </div>
-    </div>
 </div>
   );
 }
