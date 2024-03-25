@@ -5,7 +5,8 @@
   }
   
   .NavLogin {
-    flex: 1; 
+    width: 100vw;
+    display:flex;
   }
 
   .Footer {
