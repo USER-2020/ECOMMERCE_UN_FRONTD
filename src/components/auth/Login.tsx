@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Modal, Button } from '@mui/material'
 import './Login.css'
+import { loginService } from '../../services/login';
 // import { login } from '../../../services/login';
 
 export default function Login() {
-    const [username, setUsername] = useState('');
+    const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
     const [open, setOpen] = useState(false);
 
@@ -16,11 +17,33 @@ export default function Login() {
         setOpen(false);
     };
 
-    const handleLogin = () => {
-        // e.preventDefault();
-        // Handle login logic here, for example, send credentials to server
-        console.log('Logging in with:', username, password);
+    const handleLogin = async () => {
+        try {
+            const response = await loginService({ email, password });
+            // Handle successful login (e.g., navigate to a different page)
+            console.log('Login successful:', response.data);
+        } catch (error) {
+            // Handle login errors (e.g., display an error message)
+            console.error('Login error:', error);
+        }
     };
+    
+    useEffect(() => {
+        console.log('email:', email);
+        console.log('password:', password);
+    }, [email, password]);
+
+    // const handleLogin2 = () => {
+    //     loginService({ email, password })
+    //         .then((response) => {
+    //             // Handle successful login (e.g., navigate to a different page)
+    //             console.log('Login successful:', response.data);
+    //         })
+    //         .catch((error) => {
+    //             // Handle login errors (e.g., display an error message)
+    //             console.error('Login error:', error);
+    //         });
+    // };
 
     return (
         <>
@@ -34,10 +57,10 @@ export default function Login() {
                 >
                     <div className='modal-content'>
                         <h2>Ecommerce UN</h2>
-                        <form onSubmit={handleLogin}>
+                        <form onSubmit={(event) => {handleLogin(); event.preventDefault();}}>
                             <div>
-                                {/* <label>Username:</label> */}
-                                <input type="text" value={username} placeholder='username or email' onChange={(e) => setUsername(e.target.value)} />
+                                {/* <label>email:</label> */}
+                                <input type="text" value={email} placeholder='email or email' onChange={(e) => setemail(e.target.value)} />
                             </div>
                             <div>
                                 {/* <label>Password:</label> */}
