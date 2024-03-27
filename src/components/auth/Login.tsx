@@ -5,7 +5,7 @@ import { loginService } from '../../services/login';
 // import { login } from '../../../services/login';
 
 export default function Login() {
-    const [email, setemail] = useState('');
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
     const [open, setOpen] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await loginService({ email, password });
+            const response = await loginService({ usernameOrEmail, password });
             // Handle successful login (e.g., navigate to a different page)
             console.log('Login successful:', response.data);
         } catch (error) {
@@ -29,10 +29,9 @@ export default function Login() {
     };
     
     useEffect(() => {
-        console.log('email:', email);
+        console.log('email:', usernameOrEmail);
         console.log('password:', password);
-        console.log("Hola mi nombre es frarilejon Ernesto perez, te quiero saludar, no me conoces pero yo a ti si si, mi nombre es frailejo");
-    }, [email, password]);
+    }, [usernameOrEmail, password]);
 
     // const handleLogin2 = () => {
     //     loginService({ email, password })
@@ -61,7 +60,7 @@ export default function Login() {
                         <form onSubmit={(event) => {handleLogin(); event.preventDefault();}}>
                             <div>
                                 {/* <label>email:</label> */}
-                                <input type="text" value={email} placeholder='email or email' onChange={(e) => setemail(e.target.value)} />
+                                <input type="text" value={usernameOrEmail} placeholder='email or email' onChange={(e) => setUsernameOrEmail(e.target.value)} />
                             </div>
                             <div>
                                 {/* <label>Password:</label> */}
