@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:8080';
+export const urlBase = 'http://185.139.1.59:8000/api';
