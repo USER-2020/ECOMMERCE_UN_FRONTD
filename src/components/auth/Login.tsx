@@ -31,7 +31,7 @@ export default function Login() {
     useEffect(() => {
         console.log('email:', email);
         console.log('password:', password);
-        console.log("Hola mi nombre es frarilejon Ernesto perez");
+        console.log("Hola mi nombre es frarilejon Ernesto perez, te quiero saludar");
     }, [email, password]);
 
     // const handleLogin2 = () => {
