@@ -1,0 +1,83 @@
+.login {
+    display: flex;
+    background-color: #d9242400;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    height: 30px;
+    color: white;
+}
+
+.modal{
+    display: flex;
+    width: 100%;
+}
+
+.modal-content {
+    text-align: center;
+    margin:50px;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(to bottom, #1b74d4 , #033469 ); 
+    border:none;
+    border-radius: 10px;
+    box-shadow: #1007076c;
+    width: 80%;
+    height: 150px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    form input {
+        height: 30px;
+    }
+
+    form button {
+        height: 40px;
+    }
+}
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+form input{
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    border: none;
+    background: #ffffffdd;
+    padding: 5px;
+}
+
+form label{
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+form button{
+    width: 15%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background:#1b74d4;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+form button:hover{
+    background: linear-gradient(to bottom, #1b74d4 , #033469 ); 
+    color: #ffffff;
+}

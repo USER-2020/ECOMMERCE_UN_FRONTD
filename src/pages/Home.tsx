@@ -7,7 +7,7 @@ function Home() {
     <div>
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <NavBar />
+           <NavBar /> 
         </Grid>
         <Grid item xs={12}>
           <Container>

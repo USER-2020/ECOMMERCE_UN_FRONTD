@@ -23,7 +23,7 @@ export default function MediaControlCard() {
                                 Live From Space
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Mac Miller
+                                Mac Miller Caracterisitcas del producto 
                             </Typography>
 
                         </CardContent>
