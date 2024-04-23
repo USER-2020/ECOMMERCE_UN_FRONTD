@@ -16,7 +16,7 @@ export default function MediaControlCard() {
                         component="img" sx={{ width: 500 }} image="https://www.ceupe.com/images/easyblog_articles/3461/b2ap3_amp_productos-en-carrito-de-compra.jpg"
                         alt="Live from space album cover"/>                    
                     <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
-                        <CardContent sx={{ flex: '1 0 auto' }}>
+                        <CardContent>
                             <Typography component="div" variant="h5">
                                 Nombre del producto
                             </Typography>
