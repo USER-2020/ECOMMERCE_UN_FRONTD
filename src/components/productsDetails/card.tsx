@@ -14,7 +14,7 @@ export default function MediaControlCard() {
                 <Card sx={{ display: 'flex' }}>
                     <CardImage/>
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                        <CardContent sx={{ flex: '1 0 auto' }}>
+                        <CardContent>
                             <Typography component="div" variant="h5">
                                 Live From Space
                             </Typography>

@@ -1,12 +1,12 @@
 .App {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
   }
   
   .NavLogin {
     width: 100vw;
     display:flex;
+    background:linear-gradient(to bottom, #1b74d4 , #033469 ); 
   }
 
   .Footer {
