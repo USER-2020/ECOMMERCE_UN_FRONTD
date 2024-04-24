@@ -13,7 +13,6 @@ const AppRouter = () => {
                     <Route path="/prueba" element={<MediaControlCard />} />
                     <Route path="/catalog" element={<Catalog /> } />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/login" element={<Login />} />
                 </Routes>
             </Router>
         </>
