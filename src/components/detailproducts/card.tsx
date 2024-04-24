@@ -15,8 +15,8 @@ export default function MediaControlCard() {
                         alt="Live from space album cover"/>   
                         <Box>
                             <CardContent>
-                                <Typography component="div" variant="h5">
-                                    Nombre del producto
+                                <Typography component="div" variant="h4">
+                                Nombre del producto
                                 </Typography>
                                 <Typography variant="subtitle1" color="text.secondary" component="div">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

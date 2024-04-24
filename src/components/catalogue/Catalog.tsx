@@ -13,7 +13,7 @@ export default function Catalog() {
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                height="140"
+                                height="135"
                                 image="/static/images/cards/contemplative-reptile.jpg"
                                 alt="green iguana"
                             />
