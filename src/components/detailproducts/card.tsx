@@ -1,31 +1,43 @@
+import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 export default function MediaControlCard() {
-    return (
-        <Grid container>
-            <Grid item xs={12}>
-                <Card variant="outlined" sx={{ display: 'flex', width: '100%', border: 0 }}>
-                    <CardMedia
-                        component="img" sx={{ width:"30vh" }} image="https://www.ceupe.com/images/easyblog_articles/3461/b2ap3_amp_productos-en-carrito-de-compra.jpg"
-                        alt="Live from space album cover"/>   
-                        <Box>
-                            <CardContent>
-                                <Typography component="div" variant="h4">
-                                Nombre del producto
+    const [product, setProduct] = useState([]);
+    
+    useEffect(() => {
+        axios.get('http://localhost:8080/api/products')
+            .then((response) => {
+                console.table(response.data);
+                setProduct(response.data);
+            });
+    }, []);
+    
+    return  (
+        <Grid container >
+            {/* <Grid item xs={12}>
+                {product && product.map((product) => (
+                    <Card key={product.id_producto}>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                {product.product_name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {product.description}
+                            </Typography>
+                            <Box display="flex" justifyContent="flex-end">
+                                <Typography variant="body2" color="text.secondary">
+                                    {product.unit_price}
                                 </Typography>
-                                <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-                                </Typography>
-                            </CardContent>
-                        </Box>
-                </Card>
-            </Grid>
-        </Grid>
-    );
-}
+                            </Box>
+                        </CardContent>
+                    </Card>
+                ))}
+            </Grid> */}
+        </Grid >
+    ) ;
+ }
