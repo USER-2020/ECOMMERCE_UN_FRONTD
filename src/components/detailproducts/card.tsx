@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { Box, CircularProgress, Grid } from '@mui/material';
+// import Typography from '@mui/material/Typography';
+import { CircularProgress } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { urlBase } from '../../defaultvalues';
 import Swal from 'sweetalert2';
@@ -17,7 +16,6 @@ export default function MediaControlCard() {
         description: ""
     });
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const { slug } = useParams();
 
     const getProductBySlug = () => {
@@ -48,9 +46,9 @@ export default function MediaControlCard() {
         return <CircularProgress />;
     }
 
-    if (error) {
-        return <Typography variant="body1">{error}</Typography>;
-    }
+    // if (error) {
+    //     return <Typography variant="body1">{error}</Typography>;
+    // }
 
     return (
 
