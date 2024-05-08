@@ -11,7 +11,11 @@ import imgProductPrueba from '../../assets/imgsProductsPrueba/sg-11134201-7rblo-
 import './card.css';
 
 export default function MediaControlCard() {
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState({
+        product_name: "",
+        unit_price: 0,
+        description: ""
+    });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { slug } = useParams();
