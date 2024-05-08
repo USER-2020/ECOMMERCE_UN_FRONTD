@@ -49,7 +49,7 @@ const ProductsRecents = () => {
 
 
     return (
-        <Container style={{ height: '100vh', marginBottom: '120px' }} maxWidth="lg">
+        <Container style={{ height: 'auto', marginBottom: '120px' }} maxWidth="lg">
             <div className="cardsRecent">
                 <h2>Productos agregados recientemente</h2>
                 <span><a href="#">Ver todos</a></span>
