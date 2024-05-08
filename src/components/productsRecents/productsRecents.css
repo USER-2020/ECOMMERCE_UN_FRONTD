@@ -1,0 +1,15 @@
+.cardsRecent{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.cardsRecent span{
+    color: blue;
+    cursor: pointer;
+}
+
+.cardsRecent span a {
+    text-decoration: none;
+}

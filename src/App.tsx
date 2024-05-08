@@ -6,11 +6,13 @@ import { Box } from '@mui/material';
 
 function App() {
   return (
-    <Box>
-      <NavBar />
-      <AppRouter />
-      <Footer />
-    </Box>
+    <>
+      <Box>
+        <NavBar />
+        <AppRouter />
+        <Footer />
+      </Box>
+    </>
   );
 }
 

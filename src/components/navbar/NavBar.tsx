@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 //import MenuIcon from '@mui/icons-material/Menu';
 import Login from '../auth/Login';
+import ucomLogo from '../../assets/logo/ucom-parafondoazul-ft.png';
 
 
 export default function NavBar() {
@@ -12,7 +13,7 @@ export default function NavBar() {
         <Toolbar variant="dense" style={{justifyContent: 'space-between'}}>
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             {/* <MenuIcon /> */}
-            <img src="ucom-parafondoazul-ft.png" style={{height:"50px"}} alt="logo" />
+            <img src={ucomLogo} style={{height:"50px"}} alt="logo" />
           </IconButton>
         <Login />
         </Toolbar>

@@ -1,31 +1,43 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, Grid } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { urlBase } from '../../defaultvalues';
+import Swal from 'sweetalert2';
+import imgProductPrueba from '../../assets/imgsProductsPrueba/sg-11134201-7rblo-lmubhr7c8hlvac_tn.webp';
+import './card.css';
 
 export default function MediaControlCard() {
-    const [products, setProducts] = useState([]);
+    const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { slug } = useParams();
 
-    useEffect(() => {
-        axios.get('http://localhost:8080/api/products')
+    const getProductBySlug = () => {
+        axios.get(`${urlBase}/products/${slug}`)
             .then((response) => {
-                console.table(response.data.data); // Accede a la propiedad 'data' que contiene la matriz de productos
-                setProducts(response.data.data); // Almacena la matriz de productos en el estado 'products'
+                console.log(response.data.data);
+                setProduct(response.data.data);
+                setLoading(false);
             })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                // @ts-ignore
-                setError('Error fetching data. Please try again later.');
-            })
-            .finally(() => {
+            .catch((err) => {
+                console.log(err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+
+                });
                 setLoading(false);
             });
-    }, []);
+    }
+
+    useEffect(() => {
+        getProductBySlug();
+    }, [])
 
 
     if (loading) {
@@ -37,26 +49,28 @@ export default function MediaControlCard() {
     }
 
     return (
-        <Grid container>
-            <Grid item xs={12}>
-                {products.map(({ id_producto, product_name, description, unit_price }) => (
-                    <Card key={id_producto}>
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {product_name}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {description}
-                            </Typography>
-                            <Box display="flex" justifyContent="flex-end">
-                                <Typography variant="body2" color="text.secondary">
-                                    {unit_price}
-                                </Typography>
-                            </Box>
-                        </CardContent>
-                    </Card>
-                ))}
-            </Grid>
-        </Grid>
+
+        <Card variant="outlined" className='containerDetailProduct'>
+            <div className="detailProductImg">
+                <img src={imgProductPrueba} alt="Product" />
+            </div>
+            <div className="detailProductInfo">
+                <h2>{product.product_name}</h2>
+                <p>Price: ${product.unit_price}</p>
+                <p>{product.description}</p>
+                <div className="detailProductCant">
+                    <p>Cantidad:</p>
+                    <input type="number" />
+                </div>
+                <div className="detailProductOpciones">
+                    <div className="detailProductOpcionesBuyNow">
+                        <a href="#">Comprar ahora</a>
+                    </div>
+                    <div className="detailProductOpcionesAddToCart">
+                        <a href="#">Añadir al carrito</a>
+                    </div>
+                </div>
+            </div>
+        </Card>
     );
 }
