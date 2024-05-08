@@ -9,7 +9,7 @@
 
 .modal{
     display: flex;
-    width: 100%;
+    width: 80%;
 }
 
 .modal-content {
@@ -21,13 +21,12 @@
     border:none;
     border-radius: 10px;
     box-shadow: #1007076c;
-    width: 80%;
-    height: 150px;
+    height:35%;
 }
 
 @media (max-width: 768px) {
     .modal-content {
-        width: 90%;
+        width: 80%;
     }
 }
 
