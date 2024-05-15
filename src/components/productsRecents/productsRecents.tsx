@@ -34,7 +34,7 @@ interface Product {
 
 const ProductsRecents = () => {
     const [products, setProducts] = React.useState([]);
-    const [productsViewedResent, setProductsViewedResent] = React.useState([]);
+    
 
     console.log(products)
     const getProductsRecents = () => {
@@ -55,14 +55,11 @@ const ProductsRecents = () => {
 
     }
 
-    const getProductsViewedResent = () => {
-        const productosGuardados = localStorage.getItem('recentlyViewed') ? JSON.parse(localStorage.getItem('recentlyViewed')!) : [];
-        setProductsViewedResent(productosGuardados);
-    }
+   
 
     React.useEffect(() => {
         getProductsRecents();
-        getProductsViewedResent();
+        
     }, []);
 
     const agregarProductoVisto = (product: Product) => {
@@ -70,102 +67,58 @@ const ProductsRecents = () => {
         const productosGuardados = localStorage.getItem('recentlyViewed') ? JSON.parse(localStorage.getItem('recentlyViewed')!) : [];
         productosGuardados.push(product);
 
-        localStorage.setItem('recentlyViewed', JSON.stringify(productosGuardados));   
+        localStorage.setItem('recentlyViewed', JSON.stringify(productosGuardados));
     }
 
     return (
         <>
             <Container style={{ height: 'auto', marginBottom: '120px' }} maxWidth="lg">
-            <div className="cardsRecent">
-                <h2>Productos vistos recientemente</h2>
-                <span><a href="#">Ver todos</a></span>
-            </div>
+                <div className="cardsRecent">
+                    <h2>Productos agregados recientemente</h2>
+                    <span><a href="#">Ver todos</a></span>
+                </div>
 
-            <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {productsViewedResent && productsViewedResent.map(({ id_producto, product_name, description, unit_price, slug }) => (
-                    <Grid item xs={6} sm={4} md={3} key={id_producto}>
-                        <Card sx={{ maxWidth: 345, height: 400 }}>
-                            <Link to={`/detalleProducto/${slug}`} style={{ textDecoration: 'none' }}>
-                                <CardHeader
-                                    avatar={
-                                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                            R
-                                        </Avatar>
-                                    }
-                                    
-                                    title={product_name}
-                                    subheader={"$" + unit_price}
-                                />
-                                <CardMedia
-                                    component="img"
-                                    height="194"
-                                    image={imagenCamisetaPrueba}
-                                    alt="Paella dish"
-                                />
-                                <CardContent>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {description}
-                                    </Typography>
-                                </CardContent>
-                            </Link>
-                            <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites">
-                                    <FavoriteIcon />
-                                </IconButton>
-                                <IconButton aria-label="share">
-                                    <ShareIcon />
-                                </IconButton>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container><Container style={{ height: 'auto', marginBottom: '120px' }} maxWidth="lg">
-            <div className="cardsRecent">
-                <h2>Productos agregados recientemente</h2>
-                <span><a href="#">Ver todos</a></span>
-            </div>
+                <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {products && products.map((product:Product) => (
+                        <Grid item xs={6} sm={4} md={3} key={product.id_producto}>
+                            <Card sx={{ maxWidth: 345, height: 400 }}>
+                                <Link to={`/detalleProducto/${product.slug}`} style={{ textDecoration: 'none' }} onClick={()=>agregarProductoVisto(product)}>
+                                    <CardHeader
+                                        avatar={
+                                            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                                R
+                                            </Avatar>
+                                        }
 
-            <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {products && products.map(({ id_producto, product_name, description, unit_price, slug }) => (
-                    <Grid item xs={6} sm={4} md={3} key={id_producto}>
-                        <Card sx={{ maxWidth: 345, height: 400 }}>
-                            <Link to={`/detalleProducto/${slug}`} onClick={() => {agregarProductoVisto(products)}} style={{ textDecoration: 'none' }}>
-                                <CardHeader
-                                    avatar={
-                                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                            R
-                                        </Avatar>
-                                    }
-                                    
-                                    title={product_name}
-                                    subheader={"$" + unit_price}
-                                />
-                                <CardMedia
-                                    component="img"
-                                    height="194"
-                                    image={imagenCamisetaPrueba}
-                                    alt="Paella dish"
-                                />
-                                <CardContent>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {description}
-                                    </Typography>
-                                </CardContent>
-                            </Link>
-                            <CardActions disableSpacing>
-                                <IconButton aria-label="add to favorites">
-                                    <FavoriteIcon />
-                                </IconButton>
-                                <IconButton aria-label="share">
-                                    <ShareIcon />
-                                </IconButton>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container>
+                                        title={product.product_name}
+                                        subheader={"$" + product.unit_price}
+                                    />
+                                    <CardMedia
+                                        component="img"
+                                        height="194"
+                                        image={imagenCamisetaPrueba}
+                                        alt="Paella dish"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {product.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Link>
+                                <CardActions disableSpacing>
+                                    <IconButton aria-label="add to favorites">
+                                        <FavoriteIcon />
+                                    </IconButton>
+                                    <IconButton aria-label="share">
+                                        <ShareIcon />
+                                    </IconButton>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+
+            </Container>
         </>
     )
 }

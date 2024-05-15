@@ -11,7 +11,6 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import imagenCamisetaPrueba from '../../assets/imgsProductsPrueba/sg-11134201-7rblo-lmubhr7c8hlvac_tn.webp';
-import './productsRecents.css';
 import Swal from 'sweetalert2';
 import Grid from '@mui/material/Grid';
 import { urlBase } from './../../defaultvalues';
@@ -19,12 +18,78 @@ import axios from 'axios';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
 
-export const ProductsViewRecents = () => {
+
+const ProductsViewRecents = () => {
+  const [productsViewedResent, setProductsViewedResent] = React.useState([]);
+
+  const getProductsViewedResent = () => {
+    const productosGuardados = localStorage.getItem('recentlyViewed') ? JSON.parse(localStorage.getItem('recentlyViewed')!) : [];
+    setProductsViewedResent(productosGuardados);
+    console.log(productosGuardados);
+  }
+
+  React.useEffect(() => {
+    getProductsViewedResent();
+  }, []);
+
 
 
   return (
-    <div>
-        
-    </div>
+
+    <>
+      {productsViewedResent.length > 0 ? (
+        <Container style={{ height: 'auto', marginBottom: '120px' }} maxWidth="lg">
+          <div className="cardsRecent">
+            <h2>Productos vistos recientemente</h2>
+            <span><a href="#">Ver todos</a></span>
+          </div>
+
+          <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+            {productsViewedResent && productsViewedResent.map(({ id_producto, product_name, description, unit_price, slug }) => (
+              <Grid item xs={6} sm={4} md={3} key={id_producto}>
+                <Card sx={{ maxWidth: 345, height: 400 }}>
+                  <Link to={`/detalleProducto/${slug}`} style={{ textDecoration: 'none' }}>
+                    <CardHeader
+                      avatar={
+                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                          R
+                        </Avatar>
+                      }
+
+                      title={product_name}
+                      subheader={"$" + unit_price}
+                    />
+                    <CardMedia
+                      component="img"
+                      height="194"
+                      image={imagenCamisetaPrueba}
+                      alt="Paella dish"
+                    />
+                    <CardContent>
+                      <Typography variant="body2" color="text.secondary">
+                        {description}
+                      </Typography>
+                    </CardContent>
+                  </Link>
+                  <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                      <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                      <ShareIcon />
+                    </IconButton>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+        </Container>
+      ) : null}
+    </>
+
   )
 }
+
+
+export default ProductsViewRecents
