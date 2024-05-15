@@ -11,10 +11,7 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import imagenCamisetaPrueba from '../../assets/imgsProductsPrueba/sg-11134201-7rblo-lmubhr7c8hlvac_tn.webp';
-import Swal from 'sweetalert2';
 import Grid from '@mui/material/Grid';
-import { urlBase } from './../../defaultvalues';
-import axios from 'axios';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
 
