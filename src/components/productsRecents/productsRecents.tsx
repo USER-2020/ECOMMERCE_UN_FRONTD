@@ -19,10 +19,21 @@ import axios from 'axios';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
 
+interface Product {
+    id_producto: number;
+    added_by: string;
+    user_id: number;
+    product_name: string;
+    slug: string;
+    unit: string;
+    min_qty: number;
+    description: string;
+    unit_price: number;
+    stock_qty: number;
+}
 
 const ProductsRecents = () => {
     const [products, setProducts] = React.useState([]);
-
 
     const getProductsRecents = () => {
         axios.get(`${urlBase}/products`)
@@ -47,6 +58,20 @@ const ProductsRecents = () => {
 
     }, []);
 
+    const agregarProductoVisto = (product: Product) => {
+
+        console.log("1"+product)
+        // Obtenemos los productos del localStorage si existen
+        const productosGuardados = localStorage.getItem('recentlyViewed') ? JSON.parse(localStorage.getItem('recentlyViewed')!) : [];
+        console.log("2"+productosGuardados)
+
+        // Agregamos el nuevo producto al arreglo de productos
+        productosGuardados.push(product);
+
+        // Guardamos el arreglo actualizado en el localStorage
+        localStorage.setItem('recentlyViewed', JSON.stringify(productosGuardados));
+        console.log("3"+localStorage)
+    }
 
     return (
         <Container style={{ height: 'auto', marginBottom: '120px' }} maxWidth="lg">
@@ -59,7 +84,8 @@ const ProductsRecents = () => {
                 {products && products.map(({ id_producto, product_name, description, unit_price, slug }) => (
                     <Grid item xs={6} sm={4} md={3} key={id_producto}>
                         <Card sx={{ maxWidth: 345, height: 400 }}>
-                            <Link to={`/detalleProducto/${slug}`} style={{ textDecoration: 'none' }}>
+                            <pre>{{products}}</pre>
+                            <Link to={`/detalleProducto/${slug}`} onClick={() => {agregarProductoVisto(products)}} style={{ textDecoration: 'none' }}>
                                 <CardHeader
                                     avatar={
                                         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
