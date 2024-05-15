@@ -30,7 +30,7 @@ const ProductsViewRecents = () => {
   }, []);
 
 
-
+  /* TODO: cambios en estructura */
   return (
 
     <>
