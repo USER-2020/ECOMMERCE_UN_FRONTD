@@ -11,7 +11,7 @@ import './card.css';
 
 export default function MediaControlCard() {
     const [product, setProduct] = useState({
-        product_name: "",
+        name: "",
         unit_price: 0,
         description: ""
     });
@@ -57,7 +57,7 @@ export default function MediaControlCard() {
                 <img src={imgProductPrueba} alt="Product" />
             </div>
             <div className="detailProductInfo">
-                <h2>{product.product_name}</h2>
+                <h2>{product.name}</h2>
                 <p>Price: ${product.unit_price}</p>
                 <p>{product.description}</p>
                 <div className="detailProductCant">

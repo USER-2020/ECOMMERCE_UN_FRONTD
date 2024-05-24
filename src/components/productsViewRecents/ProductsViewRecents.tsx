@@ -42,7 +42,7 @@ const ProductsViewRecents = () => {
           </div>
 
           <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {productsViewedResent && productsViewedResent.map(({ id_producto, product_name, description, unit_price, slug }) => (
+            {productsViewedResent && productsViewedResent.map(({ id_producto, name, description, unit_price, slug }) => (
               <Grid item xs={6} sm={4} md={3} key={id_producto}>
                 <Card sx={{ maxWidth: 345, height: 400 }}>
                   <Link to={`/detalleProducto/${slug}`} style={{ textDecoration: 'none' }}>
@@ -53,7 +53,7 @@ const ProductsViewRecents = () => {
                         </Avatar>
                       }
 
-                      title={product_name}
+                      title={name}
                       subheader={"$" + unit_price}
                     />
                     <CardMedia

@@ -22,8 +22,8 @@ import { Link } from 'react-router-dom';
 interface Product {
     id_producto: number;
     added_by: string;
-    user_id: number;
-    product_name: string;
+    userId: number;
+    name: string;
     slug: string;
     unit: string;
     min_qty: number;
@@ -90,7 +90,7 @@ const ProductsRecents = () => {
                                             </Avatar>
                                         }
 
-                                        title={product.product_name}
+                                        title={product.name}
                                         subheader={"$" + product.unit_price}
                                     />
                                     <CardMedia
