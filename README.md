@@ -43,3 +43,23 @@ To run backend in java try >
 mvn spring-boot:run
 ```
 
+
+------------------------
+
+
+Let's generate the mobile apk
+
+To update
+
+```js
+npm run build
+npm install @capacitor/cli @capacitor/core @capacitor/ios @capacitor/android
+npx cap init
+npx cap sync
+```
+
+Android
+```js
+npx cap add android
+npx cap open android
+```
