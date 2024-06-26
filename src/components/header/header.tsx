@@ -1,5 +1,5 @@
 import "../../styles/header-styles.css";
-import imgHeader from '../../assets/others/pexels-rdne-7683872.jpg';
+import imgHeader from '../../assets/others/pexels-rdne-7683872.webp';
 
 const Header = () => {
     return (
