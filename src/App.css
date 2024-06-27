@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  background-image: url('./assets/background/PatternBG.webp');
+  background-repeat: repeat-y;
+  background-size: contain;
+  font-family: "Montserrat", sans-serif !important;
+}
+
 .App {
   display: flex;
   flex-direction: column;
+  font-family: "Montserrat", sans-serif;
 }
+
+
+
 
 .NavLogin {
   width: 100vw;
@@ -10,7 +23,7 @@
 }
 
 .Footer {
-  
+
   left: 0;
   width: 100%;
   background: linear-gradient(to bottom, #1b74d4, #033469);
