@@ -3,7 +3,7 @@
     height: calc(100vh - 70px - 32px - 32px);
     justify-content: center;
     display: flex;
-    
+
 }
 
 .containerHeader>.containerChildHeader {
@@ -109,11 +109,12 @@
         transform: translateY(-12px);
     }
 
-    .containerChildHeader>.context>.title{
+    .containerChildHeader>.context>.title {
         margin-bottom: 24px;
         height: auto;
         transform: translateY(18px);
     }
+
     .containerChildHeader>.context>.title>h3 {
         font-size: 22px;
         margin-top: -20px;
@@ -128,10 +129,11 @@
         font-size: medium;
         text-align: left;
         margin-left: 50px;
-        margin-right: 12px;        
+        margin-right: 12px;
         height: auto;
     }
-    .containerChildHeader>.context>.button{
+
+    .containerChildHeader>.context>.button {
         height: 25%;
     }
 
@@ -158,4 +160,64 @@
         -moz-box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
         box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
     }
+}
+
+@media (max-width: 768px) {
+    .containerHeader {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        display: flex;
+    }
+
+    .containerHeader>.containerChildHeader {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .containerChildHeader>.containerImgHeader {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        text-align: center;
+        align-self: center;
+    }
+
+    .containerChildHeader>.containerImgHeader>img {
+        width: 100%;
+        -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
+        -moz-box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
+        box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
+        object-fit: cover;
+    }
+
+    .containerChildHeader>.context {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .containerChildHeader>.context>.title {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerChildHeader>.context>.title>h1 {
+        font-size: 44px !important;
+        color: #009FE3;
+        font-weight: 800;
+        width: inherit;
+        margin-bottom: 20px;
+    }
+
+    .containerChildHeader>.context>.title>h3 {
+        font-size: 22px;
+        /* margin-top: -20px; */
+    }
+
 }
