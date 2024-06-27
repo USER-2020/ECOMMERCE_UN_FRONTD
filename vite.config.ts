@@ -18,12 +18,12 @@ export default defineConfig({
           {
             "src": "/ucom192x192.png",
             "type": "image/png",
-            "sizes": "192x144"
+            "sizes": "any"
           },
           {
             "src": "/ucom512x512.png",
             "type": "image/png",
-            "sizes": "512x384"
+            "sizes": "any"
           }
         ],
       }
