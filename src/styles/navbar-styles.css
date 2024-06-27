@@ -1,6 +1,7 @@
 .containerNavbar {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     top: 32px;
     margin-top: 32px;
@@ -19,7 +20,7 @@
     box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
     background-color: white;
     height: 70px;
-    
+
 }
 
 .menuBurguer {
@@ -29,10 +30,13 @@
     background-color: #009FE3;
     color: white;
     width: 70px;
-    height: 70px;
-    border-radius: 12px 0 0 12px;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
     font-size: 30px;
     cursor: pointer;
+    border: 1px solid #009FE3;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -75,6 +79,13 @@
     /* Ajusta este padding según la posición del icono y el padding-left del placeholder */
     border: 1px solid #009FE3;
     border-radius: 12px;
+    text-align: start;
+    /* Centra el texto horizontalmente */
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 18px;
+    /* Centra el texto verticalmente */
     /* Deja espacio para el ícono */
 }
 
@@ -82,7 +93,6 @@
     color: gray;
     /* Cambia esto al color que prefieras */
     font-size: 18px;
-    padding-top: 23px;
 
 }
 
@@ -120,3 +130,93 @@
     font-size: 30px;
     cursor: pointer;
 }
+
+
+/* Contenedor de categorías */
+.allCategoriasContainer {
+    width: 90%;
+    background-color: rgb(34, 99, 156);
+    height: 0;
+    overflow: hidden;
+    align-items: center;
+    position: relative;
+    align-self: center;
+    justify-content: space-between;
+    border-radius: 0 0 12px 12px;
+    border: 1px solid black;
+    transition: height 0.5s ease;
+    display: none;
+}
+
+/* Estado expandido */
+.allCategoriasContainer.expanded {
+    height: calc(100vh - 70px - 32px - 32px - 20px);
+    display: flex;
+}
+
+/* Animación de entrada */
+@keyframes slide-in-blurred-top {
+    0% {
+        transform: translateY(-70px) scaleY(2.5) scaleX(0.2);
+        transform-origin: 50% 0%;
+        filter: blur(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-blurred-top {
+    animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+/* Animación de salida (puedes definirla según tu necesidad) */
+@keyframes slide-out-blurred-top {
+    0% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-70px) scaleY(2.5) scaleX(0.2);
+        transform-origin: 50% 0%;
+        filter: blur(40px);
+        opacity: 0;
+    }
+}
+
+.slide-out-blurred-top {
+    animation: slide-out-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+
+
+
+
+.allCategoriasContainer>.categorias {
+    width: 25%;
+    height: 100%;
+    background-color: aqua;
+    border-radius: inherit;
+}
+
+.allCategoriasContainer>.subcategorias {
+    width: 25%;
+    height: 100%;
+    background-color: yellow;
+    border-radius: inherit;
+}
+
+.allCategoriasContainer>.prodCatVisuales {
+    width: 50%;
+    height: 100%;
+    background-color: saddlebrown;
+    border-radius: inherit;
+}
+
+/* div categorias */

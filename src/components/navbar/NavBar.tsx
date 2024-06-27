@@ -1,19 +1,32 @@
 import ucomLogo from '../../assets/logo/UCOM-FONDO-TRANSPARENTE.png';
 import Strip from '../strip/strip';
 import '../../styles/navbar-styles.css';
+import { useRef, useState } from 'react';
 
 export default function NavBar() {
+
+  const modalCategorias = useRef<HTMLDivElement | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
+
+  const toggleCategorias = () => {
+    setExpanded(!expanded);
+  };
+
+
   return (
     <>
       <Strip />
       <div className='containerNavbar'>
         <nav className='navbar'>
-          <div className="menuBurguer">
+          <div className="menuBurguer" onClick={toggleCategorias}>
             <i className="fa-solid fa-bars"></i>
           </div>
           <div className="allContainer">
             <div className="imgContainer">
-              <img src={ucomLogo} style={{ height: "60px" }} alt="logo" />
+              <a href="/">
+                <img src={ucomLogo} style={{ height: "60px" }} alt="logo" />
+              </a>
             </div>
             <div className='searchContainer'>
               <div className='inputWrapper'>
@@ -28,6 +41,18 @@ export default function NavBar() {
             </div>
           </div>
         </nav>
+        {/* div de allCategorias deplegable */}
+        <div className={`allCategoriasContainer ${expanded ? 'expanded' : ''}`} ref={modalCategorias}>
+          <div className="categorias">
+            Categorias
+          </div>
+          <div className="subcategorias">
+            Subcategorias
+          </div>
+          <div className="prodCatVisuales">
+            Productos visuales
+          </div>
+        </div>
       </div>
     </>
   );
