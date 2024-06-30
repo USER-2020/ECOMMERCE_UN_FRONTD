@@ -3,7 +3,8 @@
     height: calc(100vh - 70px - 32px - 32px);
     display: flex;
     justify-content: center;
-    align-items: center;
+    display: flex;
+
 }
 
 .containerChildHeader {
@@ -86,25 +87,31 @@
         align-items: center; /* Center items in column layout */
     }
 
-    .containerImgHeader {
-        width: 80%; /* Adjust width for smaller screens */
+    .containerChildHeader>.context>.title {
+        margin-bottom: 24px;
+        height: auto;
+        transform: translateY(18px);
     }
 
-    .context {
-        width: 80%;
-        padding: 16px;
+    .containerChildHeader>.context>.title>h3 {
+        font-size: 22px;
+        margin-top: -20px;
     }
 
     .context .title h1 {
         font-size: 6vw; /* Larger responsive font size */
     }
 
-    .context .title h3 {
-        font-size: 3vw; /* Larger responsive font size */
+    .containerChildHeader>.context>.text {
+        font-size: medium;
+        text-align: left;
+        margin-left: 50px;
+        margin-right: 12px;
+        height: auto;
     }
 
-    .context .text {
-        font-size: 2vw; /* Larger responsive font size */
+    .containerChildHeader>.context>.button {
+        height: 25%;
     }
 
     .context .button button {
@@ -154,4 +161,64 @@
     .context .button {
         margin-bottom: 10px;
     }
+}
+
+@media (max-width: 768px) {
+    .containerHeader {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        display: flex;
+    }
+
+    .containerHeader>.containerChildHeader {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .containerChildHeader>.containerImgHeader {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        text-align: center;
+        align-self: center;
+    }
+
+    .containerChildHeader>.containerImgHeader>img {
+        width: 100%;
+        -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
+        -moz-box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
+        box-shadow: 5px 5px 0px 0px rgba(0, 131, 187, 1);
+        object-fit: cover;
+    }
+
+    .containerChildHeader>.context {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .containerChildHeader>.context>.title {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerChildHeader>.context>.title>h1 {
+        font-size: 40px !important;
+        color: #009FE3;
+        font-weight: 800;
+        width: inherit;
+        margin-bottom: 20px;
+    }
+
+    .containerChildHeader>.context>.title>h3 {
+        font-size: 22px;
+        /* margin-top: -20px; */
+    }
+
 }
